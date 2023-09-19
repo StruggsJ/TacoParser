@@ -9,7 +9,7 @@
         
         public ITrackable Parse(string line)
         {
-            logger.LogInfo("Begin parsing");
+            //logger.LogInfo("Begin parsing");
 
             // Take your line and use line.Split(',') to split it up into an array of strings, separated by the char ','
             var cells = line.Split(',');
@@ -22,23 +22,26 @@
                 return null; // TODO Implement
             }
 
-            // grab the latitude from your array at index 0
-            // grab the longitude from your array at index 1
-            // grab the name from your array at index 2
+            // grab the latitude from your array at index 0,
+            // the longitude from your array at index 1,
+            //and grab the name for your array at index 2
 
-            // Your going to need to parse your string as a `double`
-            // which is similar to parsing a string as an `int`
+            // Create varables holding these values.
 
-            // You'll need to create a TacoBell class
-            // that conforms to ITrackable
+            var latitude = double.Parse(cells[0]);
+            var longitude = double.Parse(cells[1]);
+            var name = cells[2];
 
-            // Then, you'll need an instance of the TacoBell class
-            // With the name and point set correctly
 
-            // Then, return the instance of your TacoBell class
-            // Since it conforms to ITrackable
+            //Create the TacoBell Class and uncomment this (from vid)
+            // Make the class' method take three params. -- From vid: This is a paramized constructor.
 
-            return null;
+            ITrackable tacoBell = new TacoBell(name, latitude, longitude);
+
+            // Return the instance of your TacoBell class
+            // Since it conforms to ITrackable -- done after creating the TacoBell class.
+
+            return tacoBell;
         }
     }
 }
